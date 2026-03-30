@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Taxi Eilat</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #ffcc00;
+            --whatsapp-color: #25D366;
+            --card-bg: #1e1e1e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .lang-switcher {
+            background-color: #000;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #777;
+            font-size: 1em;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            color: #000;
+            background-color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            padding: 30px 20px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+            align-items: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            width: 85%;
+            max-width: 320px;
+            color: #000;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.03);
+        }
+
+        .btn-call {
+            background-color: var(--accent-color);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: #fff;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            text-align: left;
+        }
+
+        body.rtl {
+            direction: rtl;
+        }
+        
+        body.rtl .feature-card {
+            text-align: right;
+            border-left: none;
+            border-right: 4px solid var(--accent-color);
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('ru')">🇷🇺 Рус</button>
+        <button class="lang-btn" onclick="setLanguage('en')">🇬🇧 Eng</button>
+        <button class="lang-btn" onclick="setLanguage('he')">🇮🇱 עבר</button>
+    </div>
+
+    <header>
+        <h1 id="title">Grand Taxi Eilat</h1>
+        <p id="subtitle">Надежный трансфер и поездки по городу</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="buttons-container">
+            <a href="tel:+972542257878" class="cta-button btn-call" id="btn-call">📞 Позвонить водителю</a>
+            
+            <a href="https://wa.me/972542257878?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%82%D0%B0%D0%BA%D1%81%D0%B8." class="cta-button btn-whatsapp" id="btn-wa" target="_blank">💬 Написать в WhatsApp</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3 id="feat1-title">✈️ Трансфер в аэропорт Рамон</h3>
+                <p id="feat1-desc">Встретим вовремя и доставим с комфортом прямо к терминалу.</p>
+            </div>
+            <div class="feature-card">
+                <h3 id="feat2-title">🌊 Поездки на Мертвое море</h3>
+                <p id="feat2-desc">Комфортабельные междугородние поездки по фиксированной цене.</p>
+            </div>
+            <div class="feature-card">
+                <h3 id="feat3-title">🏙️ По городу и окрестностям</h3>
+                <p id="feat3-desc">Быстрая подача машины и вежливое обслуживание.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p id="footer-text">&copy; 2026 Grand Taxi Eilat. Все права защищены.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            ru: {
+                subtitle: "Надежный трансфер и поездки по городу",
+                btnCall: "📞 Позвонить водителю",
+                btnWa: "💬 Написать в WhatsApp",
+                feat1Title: "✈️ Трансфер в аэропорт Рамон",
+                feat1Desc: "Встретим вовремя и доставим с комфортом прямо к терминалу.",
+                feat2Title: "🌊 Поездки на Мертвое море",
+                feat2Desc: "Комфортабельные междугородние поездки по фиксированной цене.",
+                feat3Title: "🏙️ По городу и окрестностям",
+                feat3Desc: "Быстрая подача машины и вежливое обслуживание.",
+                footer: "&copy; 2026 Grand Taxi Eilat. Все права защищены."
+            },
+            en: {
+                subtitle: "Reliable transfer and city trips",
+                btnCall: "📞 Call Driver",
+                btnWa: "💬 Message on WhatsApp",
+                feat1Title: "✈️ Ramon Airport Transfer",
+                feat1Desc: "We will meet you on time and deliver you comfortably to the terminal.",
+                feat2Title: "🌊 Dead Sea Trips",
+                feat2Desc: "Comfortable intercity trips at a fixed price.",
+                feat3Title: "🏙️ City & Local Rides",
+                feat3Desc: "Fast car arrival and polite service.",
+                footer: "&copy; 2026 Grand Taxi Eilat. All rights reserved."
+            },
+            he: {
+                subtitle: "הסעות אמינות ונסיעות עירוניות",
+                btnCall: "📞 התקשר לנהг",
+                btnWa: "💬 שלח הודעה בוואטסאפ",
+                feat1Title: "✈️ הסעות לנמל התעופה רמון",
+                feat1Desc: "נפגוש אתכם בזמן ונגיע בנוחות ישירות לטרמינל.",
+                feat2Title: "🌊 נסיעות לים המלח",
+                feat2Desc: "נסיעות בין-עיроניות נוחות במחיר קבוע.",
+                feat3Title: "🏙️ נסיעות בעיר ובסביבה",
+                feat3Desc: "הגעה מהירה של הרכב ושירות אדיב.",
+                footer: "&copy; 2026 Grand Taxi Eilat. כל הזכויות שמורות."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (lang === 'he') {
+                document.body.classList.add('rtl');
+            } else {
+                document.body.classList.remove('rtl');
+            }
+
+            document.getElementById('subtitle').innerText = translations[lang].subtitle;
+            document.getElementById('btn-call').innerText = translations[lang].btnCall;
+            document.getElementById('btn-wa').innerText = translations[lang].btnWa;
+            document.getElementById('feat1-title').innerText = translations[lang].feat1Title;
+            document.getElementById('feat1-desc').innerText = translations[lang].feat1Desc;
+            document.getElementById('feat2-title').innerText = translations[lang].feat2Title;
+            document.getElementById('feat2-desc').innerText = translations[lang].feat2Desc;
+            document.getElementById('feat3-title').innerText = translations[lang].feat3Title;
+            document.getElementById('feat3-desc').innerText = translations[lang].feat3Desc;
+            document.getElementById('footer-text').innerHTML = translations[lang].footer;
+        }
+    </script>
+</body>
+</html>
