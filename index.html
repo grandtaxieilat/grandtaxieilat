@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +39,7 @@
             justify-content: center;
             gap: 15px;
             border-bottom: 2px solid var(--accent-color);
+            direction: ltr; /* Переключатель языков всегда слева направо для удобства */
         }
 
         .lang-btn {
@@ -77,8 +78,8 @@
         /* Стиль для вашего нового слогана */
         #subtitle {
             margin: 10px 0 0;
-            font-size: 1.3em; /* Чуть крупнее */
-            color: var(--slogan-color); /* Новый цвет */
+            font-size: 1.3em;
+            color: var(--slogan-color);
             letter-spacing: 1px;
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
@@ -133,7 +134,7 @@
             background-color: var(--card-bg);
             padding: 25px;
             border-radius: 10px;
-            text-align: left;
+            text-align: right; /* По умолчанию выравнивание для иврита */
             border: 1px solid rgba(197, 160, 89, 0.2); 
             transition: all 0.3s ease;
         }
@@ -143,8 +144,9 @@
             transform: translateY(-1px);
         }
 
-        body.rtl .feature-card {
-            text-align: right;
+        /* Если переключили на русский/английский */
+        body.ltr .feature-card {
+            text-align: left;
         }
 
         .feature-card h3 {
@@ -157,12 +159,12 @@
         
         .feature-card h3 .icon {
             font-size: 1.3em;
-            margin-right: 15px;
+            margin-left: 15px; /* Отступ слева для иврита */
         }
         
-        body.rtl .feature-card h3 .icon {
-            margin-right: 0;
-            margin-left: 15px;
+        body.ltr .feature-card h3 .icon {
+            margin-left: 0;
+            margin-right: 15px;
         }
 
         .feature-card p {
@@ -183,50 +185,60 @@
         }
     </style>
 </head>
-<body>
-
-    <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLanguage('ru')">Рус</button>
-        <button class="lang-btn" onclick="setLanguage('en')">Eng</button>
-        <button class="lang-btn" onclick="setLanguage('he')">עבר</button>
+<body class="rtl"> <div class="lang-switcher">
+        <button class="lang-btn" id="btn-ru" onclick="setLanguage('ru')">Рус</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">Eng</button>
+        <button class="lang-btn active" id="btn-he" onclick="setLanguage('he')">עבר</button>
     </div>
 
     <header>
         <img src="logo.png" alt="Grand Taxi Eilat" class="logo-img">
-        <p id="subtitle">Комфорт. Точность. Надежность.</p>
+        <p id="subtitle">נוחות. דיוק. אמינות.</p>
     </header>
 
     <div class="container">
         
         <div class="buttons-container">
-            <a href="tel:+972542257878" class="cta-button btn-call" id="btn-call">Позвонить водителю</a>
+            <a href="tel:+972542257878" class="cta-button btn-call" id="btn-call">התקשר לנהг</a>
             
-            <a href="https://wa.me/972542257878?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%82%D0%B0%D0%BA%D1%81%D0%B8." class="cta-button btn-whatsapp" id="btn-wa" target="_blank">Написать в WhatsApp</a>
+            <a href="https://wa.me/972542257878?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%82%D0%B0%D0%BA%D1%81%D0%B8." class="cta-button btn-whatsapp" id="btn-wa" target="_blank">שלח הודעה בוואטסאפ</a>
         </div>
 
         <div class="features">
             <div class="feature-card">
-                <h3 id="feat1-title"><span class="icon">✈️</span>Трансфер в аэропорт Рамон</h3>
-                <p id="feat1-desc">Встретим вовремя и доставим с комфортом прямо к терминалу.</p>
+                <h3 id="feat1-title"><span class="icon">✈️</span>הסעות לנמל התעופה רמון</h3>
+                <p id="feat1-desc">נגיע בזמן иניקח אתכם בנוחות מירבית ישירות לטרמינל.</p>
             </div>
             <div class="feature-card">
-                <h3 id="feat2-title"><span class="icon">🌊</span>Поездки на Мертвое море</h3>
-                <p id="feat2-desc">Комфортабельные поездки для вашего незабываемого отдыха.</p>
+                <h3 id="feat2-title"><span class="icon">🌊</span>נסיעות לים המלח</h3>
+                <p id="feat2-desc">נסיעות מפנקות לחופשה בלתי נשכחת.</p>
             </div>
             <div class="feature-card">
-                <h3 id="feat3-title"><span class="icon">🏙️</span>По городу и окрестностям</h3>
-                <p id="feat3-desc">Быстрая подача машины и вежливое обслуживание.</p>
+                <h3 id="feat3-title"><span class="icon">🏙️</span>נסיעות בעיר ובסביבה</h3>
+                <p id="feat3-desc">הגעה מהירה של הרכב, שירות אדיב ויחס אישי.</p>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p id="footer-text">&copy; 2026 Grand Taxi Eilat. Все права защищены.</p>
+        <p id="footer-text">&copy; 2026 Grand Taxi Eilat. כל הזכויות שמורות.</p>
     </footer>
 
     <script>
         const translations = {
+            he: {
+                subtitle: "נוחות. דיוק. אמינות.",
+                btnCall: "התקשר לנהג",
+                btnWa: "שלח הודעה בוואטסאפ",
+                feat1Title: "הסעות לנמל התעופה רמון",
+                feat1Desc: "נגיע בזמן וניקח אתכם בנוחות מירבית ישירות לטרמינל.",
+                feat2Title: "נסיעות לים המלח",
+                feat2Desc: "נסיעות מפנקות לחופשה בלתי נשכחת.",
+                feat3Title: "נסיעות בעיר ובסביבה",
+                feat3Desc: "הגעה מהירה של הרכב, שירות אדיב ויחס אישי.",
+                footer: "&copy; 2026 Grand Taxi Eilat. כל הזכויות שמורות."
+            },
             ru: {
                 subtitle: "Комфорт. Точность. Надежность.",
                 btnCall: "Позвонить водителю",
@@ -250,29 +262,26 @@
                 feat3Title: "City & Local Rides",
                 feat3Desc: "Fast car arrival and polite service.",
                 footer: "&copy; 2026 Grand Taxi Eilat. All rights reserved."
-            },
-            he: {
-                subtitle: "נוחות. דיוק. אמינות.",
-                btnCall: "התקשר לנהג",
-                btnWa: "שלח הודעה בוואטסאפ",
-                feat1Title: "הסעות לנמל התעופה רמון",
-                feat1Desc: "נגיע בזמן וניקח אתכם בנוחות מירבית ישירות לטרמינל.",
-                feat2Title: "נסיעות לים המלח",
-                feat2Desc: "נסיעות מפנקות לחופשה בלתי נשכחת.",
-                feat3Title: "נסיעות בעיר ובסביבה",
-                feat3Desc: "הגעה מהירה של הרכב, שירות אדיב ויחס אישי.",
-                footer: "&copy; 2026 Grand Taxi Eilat. כל הזכויות שמורות."
             }
         };
 
         function setLanguage(lang) {
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
+            
             if (lang === 'he') {
+                document.getElementById('btn-he').classList.add('active');
+                document.body.classList.remove('ltr');
                 document.body.classList.add('rtl');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'he');
             } else {
+                if (lang === 'ru') document.getElementById('btn-ru').classList.add('active');
+                if (lang === 'en') document.getElementById('btn-en').classList.add('active');
+                
                 document.body.classList.remove('rtl');
+                document.body.classList.add('ltr');
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', lang);
             }
 
             document.getElementById('subtitle').innerText = translations[lang].subtitle;
@@ -287,6 +296,11 @@
             document.getElementById('feat3-desc').innerText = translations[lang].feat3Desc;
             document.getElementById('footer-text').innerHTML = translations[lang].footer;
         }
+
+        // Принудительно вызываем установку иврита при первой загрузке
+        window.onload = function() {
+            setLanguage('he');
+        };
     </script>
 </body>
 </html>
