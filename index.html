@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grand Taxi Eilat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Prata&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #101010; /* Deep Black Charcoal */
-            --text-color: #FFD700; /* Gold Yellow */
-            --accent-color: #FFD700; /* Gold Yellow */
-            --card-bg: #1a1a1a; /* Slightly lighter black */
-            --whatsapp-color: #25D366;
-            --call-color: #FFCC00;
+            --bg-color: #0A1931; /* Глубокий королевский синий */
+            --accent-color: #C5A059; /* Золото как на рамке */
+            --text-color: #e0e0e0;
+            --card-bg: #102444; /* Чуть светлее */
         }
         
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
@@ -24,89 +25,87 @@
             line-height: 1.6;
         }
 
+        /* Красивый шрифт для всех заголовков и логотипа */
+        h1, h2, h3, .logo-title, .logo-top-vignette, .logo-bottom-vignette {
+            font-family: 'Prata', serif !important;
+        }
+
         .lang-switcher {
             background-color: #000;
-            padding: 12px;
+            padding: 10px;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            border-bottom: 1px solid #333;
+            gap: 15px;
+            border-bottom: 2px solid var(--accent-color);
         }
 
         .lang-btn {
             background: none;
             border: none;
             color: #777;
-            font-size: 1em;
+            font-size: 0.9em;
             cursor: pointer;
-            padding: 6px 12px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 5px;
+            transition: all 0.2s;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .lang-btn.active {
             color: #000;
             background-color: var(--accent-color);
-            font-weight: bold;
-            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
         }
 
         header {
-            padding: 40px 20px 30px;
+            padding: 50px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .logo-placeholder {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 20px;
-            border-radius: 50%;
-            background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Логотип в стиле картинки */
+        .logo-box {
+            position: relative;
+            width: 200px;
+            margin-bottom: 30px;
             color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.2em;
-            text-transform: uppercase;
-            border: 2px solid var(--accent-color);
-            position: relative;
         }
 
-        /* Simplified logo emblem inside (star + text) */
-        .logo-emblem {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo-emblem::before {
-            content: '★';
+        .logo-top-vignette {
             font-size: 2.5em;
-            color: var(--accent-color);
-            margin-bottom: -5px;
+            margin-bottom: -15px;
+        }
+
+        .logo-car-crown {
+            font-size: 5.5em; /* Корона */
+            margin: -25px 0 -15px;
+            line-height: 1;
         }
         
-        .logo-text-top { font-size: 0.8em; letter-spacing: 1px;}
-        .logo-text-middle { font-size: 1.4em; font-weight: 900; letter-spacing: -1px; margin: -3px 0;}
-        .logo-text-bottom { font-size: 0.8em; letter-spacing: 1px;}
+        .logo-car {
+            position: relative;
+            top: -10px;
+            font-size: 3em; /* Машина */
+            display: block;
+        }
 
-        h1 {
-            margin: 0;
-            font-size: 2.8em;
-            color: var(--accent-color);
+        .logo-title {
+            font-size: 2.5em;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 900;
-            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+            font-weight: 400;
+            margin: 5px 0 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-bottom-vignette {
+            font-size: 2.5em;
+            margin-top: -10px;
         }
 
         #subtitle {
-            margin: 10px 0 0;
+            margin: 5px 0 0;
             font-size: 1.1em;
             color: var(--text-color);
             opacity: 0.9;
@@ -114,7 +113,7 @@
         }
 
         .container {
-            max-width: 650px;
+            max-width: 600px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -122,23 +121,23 @@
         .buttons-container {
             display: flex;
             flex-direction: column;
-            gap: 18px;
-            margin: 35px 0 45px;
+            gap: 15px;
+            margin: 30px 0 40px;
             align-items: center;
         }
 
         .cta-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 90%;
+            display: inline-block;
+            width: 85%;
             max-width: 350px;
-            padding: 18px 25px;
-            font-size: 1.2em;
-            font-weight: 800;
+            color: #000; /* Черный текст на золоте */
+            padding: 16px 20px;
+            font-size: 1.1em;
+            font-weight: 900;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            background-color: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -146,69 +145,31 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
         }
 
-        .btn-call {
-            background-color: var(--call-color);
-            color: #000;
-        }
-
-        .btn-call::before {
-            content: '📞';
-            margin-right: 12px;
-            font-size: 1.2em;
-        }
-
-        .btn-whatsapp {
-            background-color: var(--whatsapp-color);
-            color: #fff;
-        }
-
-        .btn-whatsapp::before {
-            content: '💬';
-            margin-right: 12px;
-            font-size: 1.2em;
-        }
+        .btn-call::before { content: '📞 '; }
+        .btn-whatsapp::before { content: '💬 '; }
 
         .features {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 30px;
         }
 
         .feature-card {
             background-color: var(--card-bg);
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: left;
-            border: 1px solid #222;
+            border: 1px solid rgba(197, 160, 89, 0.2); 
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent-color);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
         }
 
         .feature-card:hover {
-            border-color: #333;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
-        }
-        
-        .feature-card:hover::after {
-            transform: scaleX(1);
+            border-color: var(--accent-color);
+            transform: translateY(-1px);
         }
 
         body.rtl .feature-card {
@@ -217,8 +178,9 @@
 
         .feature-card h3 {
             margin-top: 0;
-            font-size: 1.4em;
             color: var(--accent-color);
+            font-size: 1.5em;
+            font-weight: 400;
             display: flex;
             align-items: center;
         }
@@ -235,39 +197,38 @@
 
         .feature-card p {
             margin: 10px 0 0;
-            font-size: 1em;
+            font-size: 0.95em;
             color: var(--text-color);
-            opacity: 0.85;
-            font-weight: 400;
+            opacity: 0.8;
+            font-weight: 300;
         }
 
         footer {
-            margin-top: 60px;
-            padding: 30px 20px;
-            font-size: 0.9em;
-            color: var(--text-color);
-            opacity: 0.6;
-            border-top: 1px solid #222;
+            margin-top: 50px;
+            padding: 25px 20px;
+            font-size: 0.85em;
+            color: #777;
+            border-top: 2px solid var(--accent-color);
+            font-weight: 300;
         }
     </style>
 </head>
 <body>
 
     <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLanguage('ru')">🇷🇺 Рус</button>
-        <button class="lang-btn" onclick="setLanguage('en')">🇬🇧 Eng</button>
-        <button class="lang-btn" onclick="setLanguage('he')">🇮🇱 עבר</button>
+        <button class="lang-btn active" onclick="setLanguage('ru')">Рус</button>
+        <button class="lang-btn" onclick="setLanguage('en')">Eng</button>
+        <button class="lang-btn" onclick="setLanguage('he')">עבר</button>
     </div>
 
     <header>
-        <div class="logo-placeholder">
-            <div class="logo-emblem">
-                <span class="logo-text-top">GRAND</span>
-                <span class="logo-text-middle">TAXI</span>
-                <span class="logo-text-bottom">EILAT</span>
-            </div>
+        <div class="logo-box">
+            <div class="logo-top-vignette">❦</div>
+            <div class="logo-car-crown">👑</div>
+            <div class="logo-car">🚖</div>
+            <div class="logo-title">Grand Taxi</div>
+            <div class="logo-bottom-vignette">❧</div>
         </div>
-        <h1 id="title">Grand Taxi Eilat</h1>
         <p id="subtitle">Надежный трансфер и поездки по городу. Цена вне конкуренции!</p>
     </header>
 
@@ -306,11 +267,11 @@
                 subtitle: "Надежный трансфер и поездки по городу. Цена вне конкуренции!",
                 btnCall: "Позвонить водителю",
                 btnWa: "Написать в WhatsApp",
-                feat1Title: "✈️ Трансфер в аэропорт Рамон",
+                feat1Title: "Трансфер в аэропорт Рамон",
                 feat1Desc: "Встретим вовремя и доставим с комфортом прямо к терминалу.",
-                feat2Title: "🌊 Поездки на Мертвое море",
+                feat2Title: "Поездки на Мертвое море",
                 feat2Desc: "Комфортабельные поездки для вашего незабываемого отдыха.",
-                feat3Title: "🏙️ По городу и окрестностям",
+                feat3Title: "По городу и окрестностям",
                 feat3Desc: "Быстрая подача машины и вежливое обслуживание.",
                 footer: "&copy; 2026 Grand Taxi Eilat. Все права защищены."
             },
@@ -318,11 +279,11 @@
                 subtitle: "Reliable transfer and city trips. Unbeatable prices!",
                 btnCall: "Call Driver",
                 btnWa: "Message on WhatsApp",
-                feat1Title: "✈️ Ramon Airport Transfer",
+                feat1Title: "Ramon Airport Transfer",
                 feat1Desc: "We will meet you on time and deliver you comfortably to the terminal.",
-                feat2Title: "🌊 Dead Sea Trips",
+                feat2Title: "Dead Sea Trips",
                 feat2Desc: "Comfortable trips for your unforgettable vacation.",
-                feat3Title: "🏙️ City & Local Rides",
+                feat3Title: "City & Local Rides",
                 feat3Desc: "Fast car arrival and polite service.",
                 footer: "&copy; 2026 Grand Taxi Eilat. All rights reserved."
             },
@@ -330,11 +291,11 @@
                 subtitle: "מוניות באילת — נסיעות עירוניות והסעות לכל חלקי הארץ. מחירים ללא תחרות!",
                 btnCall: "התקשר לנהג",
                 btnWa: "שלח הודעה בוואטסאפ",
-                feat1Title: "✈️ הסעות לנמל התעופה רמון",
+                feat1Title: "הסעות לנמל התעופה רמון",
                 feat1Desc: "נגיע בזמן וניקח אתכם בנוחות מירבית ישירות לטרמינל.",
-                feat2Title: "🌊 נסיעות לים המלח",
+                feat2Title: "נסיעות לים המלח",
                 feat2Desc: "נסיעות מפנקות לחופשה בלתי נשכחת.",
-                feat3Title: "🏙️ נסיעות בעיר ובסביבה",
+                feat3Title: "נסיעות בעיר ובסביבה",
                 feat3Desc: "הגעה מהירה של הרכב, שירות אדיב ויחס אישי.",
                 footer: "&copy; 2026 Grand Taxi Eilat. כל הזכויות שמורות."
             }
@@ -353,12 +314,13 @@
             document.getElementById('subtitle').innerText = translations[lang].subtitle;
             document.getElementById('btn-call').innerText = translations[lang].btnCall;
             document.getElementById('btn-wa').innerText = translations[lang].btnWa;
-            // For features, we need to preserve the icon span
-            document.getElementById('feat1-title').innerHTML = `<span class="icon">✈️</span>${translations[lang].feat1Title.replace('✈️ ', '')}`;
+            
+            // Сохраняем иконки при смене языка
+            document.getElementById('feat1-title').innerHTML = `<span class="icon">✈️</span>${translations[lang].feat1Title}`;
             document.getElementById('feat1-desc').innerText = translations[lang].feat1Desc;
-            document.getElementById('feat2-title').innerHTML = `<span class="icon">🌊</span>${translations[lang].feat2Title.replace('🌊 ', '')}`;
+            document.getElementById('feat2-title').innerHTML = `<span class="icon">🌊</span>${translations[lang].feat2Title}`;
             document.getElementById('feat2-desc').innerText = translations[lang].feat2Desc;
-            document.getElementById('feat3-title').innerHTML = `<span class="icon">🏙️</span>${translations[lang].feat3Title.replace('🏙️ ', '')}`;
+            document.getElementById('feat3-title').innerHTML = `<span class="icon">🏙️</span>${translations[lang].feat3Title}`;
             document.getElementById('feat3-desc').innerText = translations[lang].feat3Desc;
             document.getElementById('footer-text').innerHTML = translations[lang].footer;
         }
