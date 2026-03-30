@@ -25,8 +25,8 @@
             line-height: 1.6;
         }
 
-        /* Красивый шрифт для всех заголовков и логотипа */
-        h1, h2, h3, .logo-title, .logo-top-vignette, .logo-bottom-vignette {
+        /* Красивый шрифт для всех заголовков */
+        h1, h2, h3 {
             font-family: 'Prata', serif !important;
         }
 
@@ -58,50 +58,18 @@
         }
 
         header {
-            padding: 50px 20px;
+            padding: 40px 20px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Логотип в стиле картинки */
-        .logo-box {
-            position: relative;
-            width: 200px;
-            margin-bottom: 30px;
-            color: var(--accent-color);
-        }
-
-        .logo-top-vignette {
-            font-size: 2.5em;
-            margin-bottom: -15px;
-        }
-
-        .logo-car-crown {
-            font-size: 5.5em; /* Корона */
-            margin: -25px 0 -15px;
-            line-height: 1;
-        }
-        
-        .logo-car {
-            position: relative;
-            top: -10px;
-            font-size: 3em; /* Машина */
+        /* Стили для вашего загруженного логотипа */
+        .logo-img {
+            max-width: 280px; /* Оптимальный размер для мобильных и ПК */
+            height: auto;
+            margin-bottom: 15px;
             display: block;
-        }
-
-        .logo-title {
-            font-size: 2.5em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 400;
-            margin: 5px 0 0;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .logo-bottom-vignette {
-            font-size: 2.5em;
-            margin-top: -10px;
         }
 
         #subtitle {
@@ -222,13 +190,7 @@
     </div>
 
     <header>
-        <div class="logo-box">
-            <div class="logo-top-vignette">❦</div>
-            <div class="logo-car-crown">👑</div>
-            <div class="logo-car">🚖</div>
-            <div class="logo-title">Grand Taxi</div>
-            <div class="logo-bottom-vignette">❧</div>
-        </div>
+        <img src="logo.png" alt="Grand Taxi Eilat" class="logo-img">
         <p id="subtitle">Надежный трансфер и поездки по городу. Цена вне конкуренции!</p>
     </header>
 
@@ -315,7 +277,6 @@
             document.getElementById('btn-call').innerText = translations[lang].btnCall;
             document.getElementById('btn-wa').innerText = translations[lang].btnWa;
             
-            // Сохраняем иконки при смене языка
             document.getElementById('feat1-title').innerHTML = `<span class="icon">✈️</span>${translations[lang].feat1Title}`;
             document.getElementById('feat1-desc').innerText = translations[lang].feat1Desc;
             document.getElementById('feat2-title').innerHTML = `<span class="icon">🌊</span>${translations[lang].feat2Title}`;
