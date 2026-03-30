@@ -11,6 +11,7 @@
         :root {
             --bg-color: #0A1931; /* Глубокий королевский синий */
             --accent-color: #C5A059; /* Золото как на рамке */
+            --slogan-color: #E2C799; /* Теплое песочное золото для слогана */
             --text-color: #e0e0e0;
             --card-bg: #102444; /* Чуть светлее */
         }
@@ -25,9 +26,10 @@
             line-height: 1.6;
         }
 
-        /* Красивый шрифт для всех заголовков */
-        h1, h2, h3 {
+        /* Красивый шрифт Prata для заголовков и слогана */
+        h1, h2, h3, #subtitle {
             font-family: 'Prata', serif !important;
+            font-weight: 400;
         }
 
         .lang-switcher {
@@ -64,20 +66,21 @@
             align-items: center;
         }
 
-        /* Стили для вашего загруженного логотипа */
+        /* Логотип */
         .logo-img {
-            max-width: 280px; /* Оптимальный размер для мобильных и ПК */
+            max-width: 280px;
             height: auto;
             margin-bottom: 15px;
             display: block;
         }
 
+        /* Стиль для вашего нового слогана */
         #subtitle {
-            margin: 5px 0 0;
-            font-size: 1.1em;
-            color: var(--text-color);
-            opacity: 0.9;
-            font-weight: 300;
+            margin: 10px 0 0;
+            font-size: 1.3em; /* Чуть крупнее */
+            color: var(--slogan-color); /* Новый цвет */
+            letter-spacing: 1px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         .container {
@@ -148,7 +151,6 @@
             margin-top: 0;
             color: var(--accent-color);
             font-size: 1.5em;
-            font-weight: 400;
             display: flex;
             align-items: center;
         }
@@ -191,7 +193,7 @@
 
     <header>
         <img src="logo.png" alt="Grand Taxi Eilat" class="logo-img">
-        <p id="subtitle">Надежный трансфер и поездки по городу. Цена вне конкуренции!</p>
+        <p id="subtitle">Комфорт. Точность. Надежность.</p>
     </header>
 
     <div class="container">
@@ -226,7 +228,7 @@
     <script>
         const translations = {
             ru: {
-                subtitle: "Надежный трансфер и поездки по городу. Цена вне конкуренции!",
+                subtitle: "Комфорт. Точность. Надежность.",
                 btnCall: "Позвонить водителю",
                 btnWa: "Написать в WhatsApp",
                 feat1Title: "Трансфер в аэропорт Рамон",
@@ -238,7 +240,7 @@
                 footer: "&copy; 2026 Grand Taxi Eilat. Все права защищены."
             },
             en: {
-                subtitle: "Reliable transfer and city trips. Unbeatable prices!",
+                subtitle: "Comfort. Precision. Reliability.",
                 btnCall: "Call Driver",
                 btnWa: "Message on WhatsApp",
                 feat1Title: "Ramon Airport Transfer",
@@ -250,7 +252,7 @@
                 footer: "&copy; 2026 Grand Taxi Eilat. All rights reserved."
             },
             he: {
-                subtitle: "מוניות באילת — נסיעות עירוניות והסעות לכל חלקי הארץ. מחירים ללא תחרות!",
+                subtitle: "נוחות. דיוק. אמינות.",
                 btnCall: "התקשר לנהג",
                 btnWa: "שלח הודעה בוואטסאפ",
                 feat1Title: "הסעות לנמל התעופה רמון",
